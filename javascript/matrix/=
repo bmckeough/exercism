@@ -1,0 +1,14 @@
+export class Matrix {
+  constructor(data) {
+    this.dataRows = data.split("\n").map(rowString => rowString.split(" ").map(s => Number(s)));
+    this.dataColumns = this.dataRows.reduce((columns, row) => row.map((_, i) => [...(columns[i] || []), row[i]]), [])
+  }
+
+  get rows() {
+    return this.dataRows;
+  }
+
+  get columns() {
+    return this.dataColumns;
+  }
+}
